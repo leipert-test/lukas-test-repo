@@ -14,5 +14,3 @@ If you are developing a production application, we recommend using TypeScript wi
 ## Test Section
 
 This section was added as a test change for PR creation.
-
-Doing stuff
