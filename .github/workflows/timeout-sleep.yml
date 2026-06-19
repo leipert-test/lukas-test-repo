@@ -1,0 +1,16 @@
+name: Timeout Sleep
+
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+
+jobs:
+  timeout-sleep:
+    name: Timeout after one minute
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+
+    steps:
+      - name: Sleep for 90 seconds
+        run: sleep 90
