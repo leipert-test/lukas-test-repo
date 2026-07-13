@@ -1,13 +1,19 @@
 name: Merge Queue Fail
 
 on:
+  pull_request:
   merge_group:
 
 jobs:
   fail-after-timeout:
     runs-on: ubuntu-latest
     steps:
-      - name: Wait 20 seconds then fail
+      - name: Wait 20 seconds then fail (merge queue only)
         run: |
-          sleep 20
-          exit 1
+          if [ "${{ github.event_name }}" = "merge_group" ]; then
+            sleep 20
+            echo "Failing in merge queue!"
+            exit 1
+          else
+            echo "PR check — passing."
+          fi
