@@ -25,9 +25,36 @@ a:hover {
 body {
   margin: 0;
   display: flex;
+  flex-direction: column;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+}
+
+#root {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+footer {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  text-align: center;
+  width: 100%;
+  margin-top: auto;
+}
+
+footer p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9em;
 }
 
 h1 {
@@ -54,6 +81,70 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* App-specific styles merged from App.css */
+
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.game h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  color: #213547;
+}
+
+.status {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #646cff;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 2px;
+  background-color: #646cff;
+  border-radius: 8px;
+  padding: 2px;
+}
+
+.square {
+  background-color: white;
+  border: none;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border-radius: 4px;
+}
+
+.square:hover {
+  background-color: #f9f9f9;
+}
+
+.square:disabled {
+  cursor: not-allowed;
+}
+
+.reset-button {
+  padding: 12px 24px;
+  font-size: 1rem;
+  background-color: #646cff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.reset-button:hover {
+  background-color: #535bf2;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -64,5 +155,12 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+  footer {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  footer p {
+    color: rgba(0, 0, 0, 0.6);
   }
 }
