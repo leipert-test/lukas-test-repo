@@ -1,13 +1,17 @@
 name: Merge Queue Fail
 
 on:
+  pull_request:
   merge_group:
 
 jobs:
   fail-after-timeout:
     runs-on: ubuntu-latest
     steps:
+      - name: Confirm test workflow
+        run: echo "Testing merge queue status updates"
       - name: Wait four minutes then fail
+        if: github.event_name == 'merge_group'
         run: |
           sleep 240
           exit 1
