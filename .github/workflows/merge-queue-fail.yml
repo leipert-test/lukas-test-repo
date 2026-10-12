@@ -7,7 +7,7 @@ jobs:
   fail-after-timeout:
     runs-on: ubuntu-latest
     steps:
-      - name: Wait 20 seconds then fail
+      - name: Wait four minutes then fail
         run: |
-          sleep 20
+          sleep 240
           exit 1
